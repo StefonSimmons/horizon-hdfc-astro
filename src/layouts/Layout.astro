@@ -1,8 +1,7 @@
 ---
 import Nav from '../layouts/nav.astro'
 import Footer from '../layouts/footer.astro'
-import '../styles/_reset.scss';
-import '../styles/_bootstrap.scss';
+import '../styles/main.css'
 interface Props {
 	title: string;
 	backgroundColor: string
@@ -21,7 +20,7 @@ const { title, backgroundColor } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class={`text-center ${backgroundColor} position-relative min-vh-100 pt-5`}>
+	<body class={`text-center ${backgroundColor} position-relative min-vh-100 pt-5 mt-5`}>
 		<Nav/>
 		<slot />
 		<Footer/>
