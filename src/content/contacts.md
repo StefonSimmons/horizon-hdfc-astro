@@ -6,6 +6,8 @@ title: Contacts
 # Contacts
 These are key individuals responsible for the management and governance of the co-op and greater Residential and Condominium sections.
 
+<br>
+
 ### Horizon Board of Directors
 - Stefon Simmons - President
 - Cassandra Apollon - Vice President
@@ -13,9 +15,13 @@ These are key individuals responsible for the management and governance of the c
 - Ashlea Morgan - Secretary
 - Sharon Colburn - Representative of the Sponsor (Columbia University)
 
+<hr class="d-block d-lg-none"/>
+
 ### Horizon Representatives
 - Leonardo Blair - Condominium Board President
 - Robin Sakr - Residential Board President
+
+<hr class="d-block d-lg-none"/>
 
 ### Property Manager
 - **Faiz Ahmed, CPO**
@@ -25,6 +31,8 @@ These are key individuals responsible for the management and governance of the c
 - Cell (917) 803-5336
 - faiz@newgents.com
 - http://www.newgents.com/
+
+<hr class="d-block d-lg-none"/>
 
 ### Residential Staff
 - **Clever Mendex (Superintendent)**
