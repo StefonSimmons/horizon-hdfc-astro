@@ -9,18 +9,18 @@ import buildingImgTwo from '../assets/3559-building-2.png'
 // console.log("DATAAA",data)
 ---
 
-<Layout title="Welcome to Horizon" backgroundColor='bg-white'>
+<Layout title="Welcome to Horizon" backgroundColor='bg-barely-grey'>
 	<main class="container pt-5">
     <div class="row g-5">
       <!-- Welcome -->
       <div class="col-12">
-        <h1 class="text-center">{frontmatter.title}</h1>
+        <h1 class="text-center">{frontmatter.welcome}</h1>
         <Content/>
       </div>
       <!-- ANNOUNCEMENTS -->
       <div class="col-12">
         <div class="container pb-4">   
-          <h1 class="text-center">Announcements</h1>
+          <h1 class="text-center">{frontmatter.announcements}</h1>
         </div>
         <div class="container list-group p-0">
           <a href="#" class="list-group-item list-group-item-action active" aria-current="true">

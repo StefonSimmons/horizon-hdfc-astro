@@ -1,6 +1,6 @@
 ---
-title: Welcome to Horizon
-
+welcome: Welcome to Horizon
+announcements: Announcements
 ---
 
 Perched high in vibrant Hamilton Heights neightborhood, Horizon HDFC has sweeping views of Harlem, the Manhattan skyline, and the Hudson River. Our home, located at 600 W 148th Street within the 3599 Broadway Condominium, offers a front-row seat to the beauty and energy of New York.
