@@ -1,5 +1,5 @@
 ---
-title: Welcome of Horizon
+title: Welcome to Horizon
 
 ---
 

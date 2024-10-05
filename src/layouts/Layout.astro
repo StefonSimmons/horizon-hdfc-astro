@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const currYear = new Date().getFullYear()
 ---
 
 <!doctype html>
@@ -65,7 +66,7 @@ const { title } = Astro.props;
 		<slot />
 		<footer class="bg-dark mt-4">
 			<div class="container text-center text-light p-3">
-				(c) Horizon HDFC
+				(c) Horizon HDFC {currYear}
 			</div>
 		</footer>
 		<script>
