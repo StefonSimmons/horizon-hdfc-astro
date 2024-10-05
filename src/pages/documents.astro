@@ -1,6 +1,42 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import {frontmatter, Content} from "../content/documents.md"
+
 ---
-<Layout title="Horizon HDFC - Document" backgroundColor='bg-barely-grey'>
-    
+<Layout title="Horizon HDFC - Documents" backgroundColor='bg-barely-grey'>
+      <div class="mt-4">
+        <div class="container">
+          <Content/>
+        </div>
+        <div class="accordion" id="accordionExample">
+          {
+            frontmatter.documents.map((d, idx) => {
+              const slug = d.name.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '').replaceAll(' ','-')
+              return (
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class={`accordion-button ${idx ? "collapsed" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target={`#${slug}`} aria-expanded={`${!idx ? "true": "false"}`} aria-controls={`${slug}`}>
+                      {d.name}
+                    </button>
+                  </h2>
+                  <div id={`${slug}`} class={`accordion-collapse collapse ${!idx ? "show": ""}`} data-bs-parent="#accordionExample">
+                    <div class="accordion-body text-start">
+                      {d.description}
+                      {
+                        d.cta.map((c,idx,list) => {
+                          return (
+                            <span class={`${c.bracket ? "d-inline": "d-none"}`}>{"["}</span>
+                            <a href={`${c.link}`} target="_blank" class="link-underline-secondary link-offset-2">{c.title}</a>
+                            <span class={`${c.bracket ? "d-inline pe-2": "d-none"}`}>{"]"}</span>
+                          )
+                        })
+                      }
+                    </div>
+                  </div>
+                </div>
+              )
+            })
+          }
+        </div>
+      </div>
 </Layout>
