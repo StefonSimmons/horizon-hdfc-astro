@@ -13,44 +13,34 @@ import buildingImgTwo from '../assets/3559-building-2.png'
 	<main class="container pt-5">
     <div class="row g-5">
       <!-- Welcome -->
-      <div class="col-12">
-        <h1 class="text-center">{frontmatter.welcome}</h1>
+      <div class="col-lg-6">
+        <h1 class="text-center mt-1">{frontmatter.welcome}</h1>
         <Content/>
       </div>
       <!-- ANNOUNCEMENTS -->
-      <div class="col-12">
-        <div class="container pb-4">   
-          <h1 class="text-center">{frontmatter.announcements}</h1>
+      <div class="col-lg-6 border rounded bg-slate ">
+        <div class="container mt-1">   
+          <h1 class="text-center">{frontmatter.listGroup.heading}</h1>
         </div>
-        <div class="container list-group p-0">
-          <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small>3 days ago</small>
-            </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small>And some small print.</small>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-body-secondary">3 days ago</small>
-            </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small class="text-body-secondary">And some muted small print.</small>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-body-secondary">3 days ago</small>
-            </div>
-            <p class="mb-1">Some placeholder content in a paragraph.</p>
-            <small class="text-body-secondary">And some muted small print.</small>
-          </a>
+        <div class="container list-group p-0 overflow-scroll" style="max-height:500px">
+          {
+            frontmatter.listGroup.list.map((i, idx) => {
+              return (
+                <a href="#" class={`list-group-item list-group-item-action text-start mb-4 ${!idx && "active"}`} aria-current={`${!idx && "true"}`}>
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{i.heading}</h5>
+                    <small class="d-none d-md-block">{i.super}</small>
+                  </div>
+                  <p class=" mt-4">{i.detail}</p>
+                  {/* <small>{i.subdetail}</small> */}
+                </a>
+              )
+            })
+          }
         </div>
       </div>
       <!-- PHOTO GALLERY -->
-      <div id="carouselExample" class="col-12 carousel slide h-50">
+      <div id="carouselExample" class="col-12 px-4 carousel slide h-50" style="margin-bottom: 100px">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src={buildingImgOne.src} alt="exterior from broadway">
@@ -59,11 +49,11 @@ import buildingImgTwo from '../assets/3559-building-2.png'
             <img src={buildingImgTwo.src} alt="exterior - front door">
           </div>
         </div>
-        <button class="carousel-control-prev bg-dark" style="--bs-bg-opacity: .7;" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <button class="carousel-control-prev bg-dark mx-4" style="--bs-bg-opacity: .7;" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next bg-dark" style="--bs-bg-opacity: .7;" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <button class="carousel-control-next bg-dark mx-4" style="--bs-bg-opacity: .7;" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
