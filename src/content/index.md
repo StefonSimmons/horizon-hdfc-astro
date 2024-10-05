@@ -2,19 +2,6 @@
 welcome: Welcome to Horizon
 listGroup: 
     heading: Announcements
-    list:
-        - heading: New Superintendent and Porter
-          detail: "We’re excited to introduce our new building team members: Clever, our super, and Frankie, our porter! They’ll be helping to keep the building running smoothly and are eager to meet everyone in the community."
-          super: 4 days ago 
-        - heading: New Superintendent and Porter
-          detail: "We’re excited to introduce our new building team members: Clever, our super, and Frankie, our porter! They’ll be helping to keep the building running smoothly and are eager to meet everyone in the community."
-          super: 4 days ago 
-        - heading: New Superintendent and Porter
-          detail: "We’re excited to introduce our new building team members: Clever, our super, and Frankie, our porter! They’ll be helping to keep the building running smoothly and are eager to meet everyone in the community."
-          super: 4 days ago 
-        - heading: New Superintendent and Porter
-          detail: "We’re excited to introduce our new building team members: Clever, our super, and Frankie, our porter! They’ll be helping to keep the building running smoothly and are eager to meet everyone in the community."
-          super: 4 days ago 
 
 ---
 

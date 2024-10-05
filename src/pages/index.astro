@@ -1,9 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
 import {frontmatter, Content} from '../content/index.md';
-import buildingImgOne from '../assets/3599-building-1.png'
-import buildingImgTwo from '../assets/3559-building-2.png'
 
+let announcements = []
+try {
+  const res = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=MsQDgUhTsZX2uvb8B0Rr9up01SJwX-x3cA1VDAXzm-APsqdvEPHYHWt324CyXpZOziAmqSnnToycKBCyik5COTXGVQmISUN2m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnAYbvfmgpOXryj8iMJ7eB_rFEFMLQed1jAPLZ5sa8ravhu6hodRKad78WDE7vEZHDH7OeQ87cXTcdJyBpDeOyWYg1se9SVzKn9z9Jw9Md8uu&lib=MDMznub2mNM29rXfxSJcRzo0TOFMzREza")
+  const resJson = await res.json()
+  announcements = resJson.data.sort((a,b) => {
+    const aDate = new Date(a.date).getTime()
+    const bDate = new Date(b.date).getTime()
+    return bDate - aDate
+  })
+} catch (error) {
+  console.log(error.message)
+  announcements = [{error: true}]
+}
+
+const daysElapsed = (date:string) => {
+  const today = new Date()
+  const announcementDate = new Date(date)
+  const timeDiff = today.getTime() - announcementDate.getTime()
+  const msInDay = (1000 * 3600 * 24)
+  const dateDiff = Math.floor(timeDiff / msInDay)
+  return dateDiff ? `${dateDiff} days ago` : "Today"
+}
+
+String.prototype.truncate = function (cutOff) {
+
+  if(this.length > cutOff){
+    return `${this.substring(0,cutOff)}...`
+  }else{
+    return this
+  }
+}
 ---
 
 <Layout title="Welcome to Horizon" backgroundColor='bg-barely-grey'>
@@ -17,44 +47,59 @@ import buildingImgTwo from '../assets/3559-building-2.png'
       <!-- ANNOUNCEMENTS -->
       <div class="col-lg-6 border rounded bg-slate ">
         <div class="container mt-1">   
-          <h1 class="text-center">{frontmatter.listGroup.heading}</h1>
+          <h2 class="text-center">{frontmatter.listGroup.heading}</h1>
         </div>
         <div class="container list-group p-0 overflow-scroll" style="max-height:500px">
           {
-            frontmatter.listGroup.list.map((i, idx) => {
+            announcements.map((a, idx) => {
+              if(a.error) {
+                  return (
+                      <div class="text-danger">Error Loading Announcements. Contact Board Member.</div>
+                  )
+              }
               return (
-                <a href="#" class={`list-group-item list-group-item-action text-start mb-4 ${!idx && "active"}`} aria-current={`${!idx && "true"}`}>
+                <a 
+                  href="#"
+                  type="button" 
+                  class={`btn list-group-item list-group-item-action rounded text-start mb-4 p-3 ${!idx ? "bg-primary-subtle":""}`} 
+                  style="height: 150px" 
+                  data-bs-toggle="modal" 
+                  data-bs-target={`#announcement-${a.id}`}
+                  >
                   <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">{i.heading}</h5>
-                    <small class="d-none d-md-block">{i.super}</small>
+                    <h5 class="mb-1">{a.heading}</h5>
+                    <small class="d-none d-md-block">{daysElapsed(a.date)}</small>
                   </div>
-                  <p class=" mt-4">{i.detail}</p>
-                  {/* <small>{i.subdetail}</small> */}
+                  <p class="mt-2">{a.detail.truncate(210)}</p>
                 </a>
               )
             })
           }
         </div>
       </div>
-      <!-- PHOTO GALLERY -->
-      <div id="carouselExample" class="col-12 px-4 carousel slide h-50" style="margin-bottom: 100px">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src={buildingImgOne.src} alt="exterior from broadway">
-          </div>
-          <div class="carousel-item">
-            <img src={buildingImgTwo.src} alt="exterior - front door">
-          </div>
-        </div>
-        <button class="carousel-control-prev bg-dark mx-4" style="--bs-bg-opacity: .7;" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next bg-dark mx-4" style="--bs-bg-opacity: .7;" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+      
+      <PhotoGallery/>
+      
+      <!-- MODAL -->
+      {
+        announcements.map((a) => {
+          return (
+            <div class="modal fade" id={`announcement-${a.id}`} tabindex="-1" aria-labelledby={`announcement-label-${a.id}`} aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id={`announcement-label-${a.id}`}>{a.heading}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-start">
+                    {a.detail}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })
+      }
    
     </div>
   </main>
