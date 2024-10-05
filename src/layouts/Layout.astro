@@ -1,13 +1,14 @@
 ---
-import {frontmatter} from "../content/layout.md"
+import Nav from '../layouts/nav.astro'
+import Footer from '../layouts/footer.astro'
 import '../styles/_reset.scss';
 import '../styles/_bootstrap.scss';
 interface Props {
 	title: string;
+	backgroundColor: string
 }
 
-const { title } = Astro.props;
-const currYear = new Date().getFullYear()
+const { title, backgroundColor } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,55 +21,10 @@ const currYear = new Date().getFullYear()
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		 <!-- NAVIGATION -->
-		 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
-			<div class="container">
-				<a class="navbar-brand" href="/">{frontmatter.title}</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-					aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<div class="navbar-nav">
-						{
-							frontmatter.navItems.map((i: any) => {
-								const slug = i.name.toLowerCase().replaceAll(' ', '-')
-								return (
-									i.dropdown ?
-									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-											aria-expanded="false">
-											{i.name}
-										</a>
-										<ul class="dropdown-menu">
-											{
-												i.dropdown.map((d:string) => {
-													const slug = d.toLowerCase().replaceAll(' ', '-')
-													return (
-														<li><a class="dropdown-item" href={`/${slug}`}>{d}</a></li>
-													)
-												})
-											}
-										</ul>
-									</li>
-									:
-									<li>
-										<a class="nav-link" href={`/${slug}`}>{i.name}</a>
-									</li>
-								)
-							})
-						}
-					</div>
-				</div>
-			</div>
-		</nav>
+	<body class={`text-center ${backgroundColor} position-relative min-vh-100 pt-5`}>
+		<Nav/>
 		<slot />
-		<footer class="bg-dark mt-4">
-			<div class="container text-center text-light p-3">
-				(c) Horizon HDFC {currYear}
-			</div>
-		</footer>
+		<Footer/>
 		<script>
 			// Import all Bootstrap js
 			import 'bootstrap/dist/js/bootstrap'

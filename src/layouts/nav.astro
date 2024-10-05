@@ -1,0 +1,47 @@
+---
+import {frontmatter} from "../content/layout.md"
+
+---
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">{frontmatter.title}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                {
+                    frontmatter.navItems.map((i: any) => {
+                        const slug = i.name.toLowerCase().replaceAll(' ', '-')
+                        return (
+                            i.dropdown ?
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    {i.name}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    {
+                                        i.dropdown.map((d:string) => {
+                                            const slug = d.toLowerCase().replaceAll(' ', '-')
+                                            return (
+                                                <li><a class="dropdown-item" href={`/${slug}`}>{d}</a></li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </li>
+                            :
+                            <li>
+                                <a class="nav-link" href={`/${slug}`}>{i.name}</a>
+                            </li>
+                        )
+                    })
+                }
+            </div>
+        </div>
+    </div>
+</nav>
