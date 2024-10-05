@@ -8,7 +8,7 @@ import {frontmatter, Content} from "../content/documents.md"
         <div class="container">
           <Content/>
         </div>
-        <div class="accordion" id="accordionExample">
+        <div class="accordion container" id="documentAccordian">
           {
             frontmatter.documents.map((d, idx) => {
               const slug = d.name.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '').replaceAll(' ','-')
@@ -19,7 +19,7 @@ import {frontmatter, Content} from "../content/documents.md"
                       <strong>{d.name}</strong>
                     </button>
                   </h2>
-                  <div id={`${slug}`} class={`accordion-collapse collapse ${!idx ? "show": ""}`} data-bs-parent="#accordionExample">
+                  <div id={`${slug}`} class={`accordion-collapse collapse ${!idx ? "show": ""}`} data-bs-parent="#documentAccordian">
                     <div class="accordion-body text-start">
                       {d.description}
                       {
