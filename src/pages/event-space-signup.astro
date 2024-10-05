@@ -1,69 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import UpcomingBookings from "../components/UpcomingBookings.astro"
 import {frontmatter} from "../content/forms.md"
 
-let bookings = []
-try {
-     // Fetch getEventSpaceResponses data from Horizon CMS (google sheet)
-    const res = await fetch("https://script.google.com/macros/s/AKfycbwU0J3qfBEbK9PWdg5JAZZKea6NxvzKxQaCM9tkNp8CH3D8wPosUlaYt4f_MGm-bE8uiA/exec")
-    const resJson = await res.json()
-    bookings = resJson.data
-} catch (error) {
-    bookings = [{error: "Error Loading Bookings. Contact Board Member."}]
-}
-
-/**
- * Format DateTime to a short time style
- * @param {string} time - DateTime string to format
- * @return {string} e.g. 5:30 PM
- */
-const eventDateTime = (time: string) => {
-    const datetime = new Date(time)
-    const formatter = new Intl.DateTimeFormat('en-US', { timeStyle: "short" })
-    return formatter.format(datetime)
-}
 ---
 <Layout title="Horizon HDFC - Book a Space" backgroundColor='bg-barely-grey'>
     <div class="container h-100">
         <p>{frontmatter.forms.eventSpaceSignup.description}<a href="/calendar" class="ps-1">Calendar</a></p>
-        <div class="accordion" id="event-space-accordian">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button bg-soft-wheat" type="button" data-bs-toggle="collapse" data-bs-target="#events" aria-controls="events">
-                  Upcoming Bookings
-                </button>
-              </h2>
-              <div id="events" class="accordion-collapse collapse show" data-bs-parent="#event-space-accordian">
-                    <div class="accordion-body text-start">
-                    {
-                    bookings.map(b => {
-                        if(b.error) {
-                            return (
-                                <div class="text-danger">{b.error}</div>
-                            )
-                        }
-                        const isRoofTop = b.space === "Rooftop Terrace"
-                        const eventDate = new Date(b.eventDate).toDateString()
-                        return(
-                        b.isApproved &&
-                        <div class="media text-muted pt-3">
-                            <div class={`${isRoofTop ? "bg-success": "bg-purp"} rounded d-flex align-items-center justify-content-center`} style="width:32px; height:32px">
-                                <span class="text-white fw-semibold">
-                                    {isRoofTop ? "R" : "C"}
-                                </span>
-                            </div>
-                            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                                <strong class="d-block text-gray-dark">{eventDate}</strong>
-                                {`${b.space} is booked from ${eventDateTime(b.startTime)} - ${eventDateTime(b.endTime)}. ${b.numOfAttendees} attendees.`} 
-                            </p>
-                        </div>
-                        )
-                    })      
-                    }
-                    </div>
-                </div>
-            </div>
-        </div>
+        <UpcomingBookings client:load/>
         <div class="d-none d-md-block">
             <!-- Google Form -->
             <iframe style="margin-bottom: 100px" class="mt-2" src="https://docs.google.com/forms/d/e/1FAIpQLSfiWMUmJjTlElQXW0L-p41OsGOjsCA2qS9h58zMJr_5Bz82Iw/viewform?embedded=true" width="640" height="1981" frameborder="0" marginheight="0" marginwidth="0" scrolling=no>Loading…</iframe>
