@@ -1,5 +1,5 @@
 ---
-description: Here are the Governing Documents for our Cooperative (Horizon) and the greater Residential section and Condominium
+description: Here are the Governing Documents for our Cooperative (Horizon) and the greater Residential and Condominium sections.
 documents:
  - name: Offering Plan (Full)
    description: Outlines the initial terms, conditions, and financial structure of the co-op when it was first formed, detailing the rights and responsibilities of shareholders and the board. It includes information on unit prices, building expenses, and how shares are allocated. This document serves as the foundation for the co-op’s governance and financial operation. 
