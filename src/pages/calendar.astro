@@ -1,11 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro"
 ---
-<Layout title="Horizon HDFC - Calendar" backgroundColor="bg-info-subtle">
+<Layout title="Horizon HDFC - Calendar" backgroundColor='bg-barely-grey'>
     <div class="mt-4">
+        <div class="container">
+            <p>View all of Horizon's meetings here.</p>
+        </div>
         <iframe src="https://calendar.google.com/calendar/embed?height=200&wkst=1&ctz=America%2FNew_York&bgcolor=%23ffffff&mode=AGENDA&showPrint=0&showCalendars=0&showTabs=0&title=Horizon:%20Upcoming&showNav=0&src=aG9yaXpvbi5oZGZjLjYwMEBnbWFpbC5jb20&color=%23F4511E" style="border:solid 1px #777" width="800" height="200" frameborder="0" scrolling="no"></iframe>
         <!-- <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&bgcolor=%23ffffff&title=Horizon:%20Monthly&showPrint=0&showTabs=0&showCalendars=0&src=aG9yaXpvbi5oZGZjLjYwMEBnbWFpbC5jb20&color=%23F4511E" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
-        <iframe src="https://embed.styledcalendar.com/#4Gvya9EFXNRs71MVhrQ7" title="Styled Calendar" class="styled-calendar-container" width=800 style="border: none;" data-cy="calendar-embed-iframe"></iframe>
+        <iframe src="https://embed.styledcalendar.com/#4Gvya9EFXNRs71MVhrQ7" title="Styled Calendar" class="styled-calendar-container" width=800 style="border: none; margin-bottom: 100px" data-cy="calendar-embed-iframe"></iframe>
         <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
     </div>
 </Layout>
