@@ -6,6 +6,10 @@
     background-color: #76c1d4;
 }
 
+.bg-soft-wheat {
+    background-color: #f0ede5;
+}
+
 .bg-barely-grey {
     background-color: #f7f7f7;
 }
@@ -27,4 +31,31 @@
     @media (max-width: 750px) {
         min-height: 200px
     }
+}
+
+.item-hover-out {
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.item-hover-in {
+    &:hover {
+        transform: scale(.98);
+        box-shadow: 
+            0 0 4px 0 #a39274,
+    }
+}
+
+a {
+    color: #a39274
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: white;
+    color: #252523;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 .25rem #f7f7f7;
 }

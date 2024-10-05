@@ -1,12 +1,15 @@
 ---
 import {frontmatter} from "../content/layout.md"
-
+import horizon from "../../public/horizon-logo.png"
 ---
 
 <!-- NAVIGATION -->
 <nav class="navbar navbar-expand-lg bg-white border-bottom fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/">{frontmatter.title}</a>
+        <a class="navbar-brand icon-link" href="/">
+            <img class="rounded" src={horizon.src} alt="horizon icon">
+            {frontmatter.title}
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,11 +22,11 @@ import {frontmatter} from "../content/layout.md"
                         return (
                             i.dropdown ?
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                <a class="nav-link dropdown-toggle item-hover-out" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     {i.name}
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu border border-top-0 rounded-0 rounded-bottom">
                                     {
                                         i.dropdown.map((d:string) => {
                                             const slug = d.toLowerCase().replaceAll(' ', '-')
@@ -36,7 +39,7 @@ import {frontmatter} from "../content/layout.md"
                             </li>
                             :
                             <li>
-                                <a class="nav-link" href={`/${slug}`}>{i.name}</a>
+                                <a class="nav-link item-hover-out" href={`/${slug}`}>{i.name}</a>
                             </li>
                         )
                     })

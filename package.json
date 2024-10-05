@@ -1,5 +1,6 @@
 {
-  "name": "",
+  "name": "horizonHDFC",
+  "author": "Stefon Simmons",
   "type": "module",
   "version": "0.0.1",
   "scripts": {

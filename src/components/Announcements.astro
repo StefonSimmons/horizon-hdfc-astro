@@ -1,0 +1,114 @@
+---
+import {frontmatter} from '../content/index.md';
+
+
+let announcements = []
+try {
+  // Fetch getAnnouncements data from Horizon CMS (google sheet)
+  const res = await fetch("https://script.google.com/macros/s/AKfycbzcsiiUCsOqcc-RbNjY_kSLyHjYNORex_QLw-DEjoUWZaMvElyHm_AAh_QNLN5m9rdaRg/exec")
+  const resJson = await res.json()
+  announcements = resJson.data.sort((a,b) => {
+                    const aDate = new Date(a.date).getTime()
+                    const bDate = new Date(b.date).getTime()
+                    return bDate - aDate
+                  })
+} catch (error) {
+  announcements = [{error: "Error Loading Announcements. Contact Board Member."}]
+}
+
+const noAnnouncements = !announcements.length || announcements.every(a => !a.goLive)
+
+/**
+ * Returns the days between today's date and the given date
+ * @param {string} date - Date string to compare with today's date
+ * @return {string} 
+ */
+ const daysElapsed = (date:string) => {
+  const today = new Date()
+  const announcementDate = new Date(date)
+  const timeDiff = today.getTime() - announcementDate.getTime()
+  const msInDay = (1000 * 3600 * 24)
+  const dateDiff = Math.floor(timeDiff / msInDay)
+  
+  return !dateDiff 
+    ? "Today" 
+    : dateDiff === 1
+    ? "Yesterday"
+    : dateDiff === -1
+    ? "Tomorrow"
+    : dateDiff < 1
+    ? `In ${Math.abs(dateDiff)} days`
+    : `${dateDiff} days ago`
+}
+
+/**
+ * Truncates string to a certain number of characters
+ * @param {number} cutOff - max character count to truncate string to 
+ * @return {string} Substring of parent string or the parent string untruncated
+ */
+String.prototype.truncate = function (cutOff) {
+  return this.length > cutOff ? `${this.substring(0,cutOff)}...` : this
+}
+
+---
+
+<!-- ANNOUNCEMENTS -->
+<div class="col-lg-6 border rounded bg-slate">
+    <div class="container mt-1">   
+      <h2 class="text-center">{frontmatter.listGroup.heading}</h1>
+    </div>
+    <div class="container list-group p-0 overflow-y-scroll" style="max-height:280px">
+      {
+        noAnnouncements ? 
+        // no announcements are set to go live
+        <div class="text-warning-emphasis">No Announcements</div>
+        :
+        announcements.map((a, idx) => {
+          if(a.error) {
+              return (
+                  <div class="text-danger">{a.error}</div>
+              )
+          }
+          return (
+            a.goLive &&
+            <a 
+              href="#"
+              type="button" 
+              class={`btn announcement item-hover-in list-group-item list-group-item-action rounded text-start mb-4 p-3 ${!idx ? "":""}`} 
+              data-bs-toggle="modal" 
+              data-bs-target={`#announcement-${a.id}`}
+              >
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{a.heading}</h5>
+                <small class="d-none d-md-block">{daysElapsed(a.date)}</small>
+              </div>
+              <p class="mt-2">{a.detail.truncate(150)}</p>
+            </a>
+          )
+        })
+      }
+    </div>
+  </div>
+
+<!-- MODAL -->
+{
+    announcements.map((a) => {
+      const date = new Date(a.date).toDateString()
+      return (
+        <div class="modal fade" id={`announcement-${a.id}`} tabindex="-1" aria-labelledby={`announcement-label-${a.id}`} aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id={`announcement-label-${a.id}`}>{a.heading}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-start">
+                <h6 class="d-block mb-2 fw-semibold">{date}</h6>
+                {a.detail}
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    })
+  }
