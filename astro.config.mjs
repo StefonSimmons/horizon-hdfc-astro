@@ -3,7 +3,7 @@ import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
-    // SSG primarily
+    // SSG primarily. SSR where prerender is false
     output: 'hybrid',
     adapter: vercel({
         webAnalytics: {

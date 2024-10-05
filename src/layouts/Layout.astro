@@ -14,7 +14,8 @@ const { title, backgroundColor } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={title}>
+		<meta property="og:title" content={title} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/horizon-logo.png" />
 		<meta name="generator" content={Astro.generator} />

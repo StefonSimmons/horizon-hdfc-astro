@@ -27,19 +27,19 @@ These are key individuals responsible for the management and governance of the c
 - **Faiz Ahmed, CPO**
 - Newgent Management LLC
 - 20 S Broadway Mezzanine, Yonkers, NY 10701
-- Office (347) 707-1010
-- Cell (917) 803-5336
+- Office: (347) 707-1010
 - faiz@newgents.com
 - http://www.newgents.com/
+<!-- - Cell (917) 803-5336 -->
 
 <hr class="d-block d-lg-none"/>
 
 ### Residential Staff
 - **Clever Mendex (Superintendent)**
-    - 347-488-5561
+    <!-- - 347-488-5561 -->
     - Works Monday-Friday, 9am - 5pm
-    - Super does not live on the premises, Is on call 24/7.
+    - On-call 24/7
     
 - **Frankie (Porter)**
-    - 929-330-1521
+    <!-- - 929-330-1521 -->
     - Works Sunday-Thursday, 3pm - 9pm

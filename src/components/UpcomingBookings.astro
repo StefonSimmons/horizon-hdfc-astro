@@ -4,7 +4,11 @@ try {
      // Fetch getEventSpaceResponses data from Horizon CMS (google sheet)
     const res = await fetch("https://script.google.com/macros/s/AKfycbwU0J3qfBEbK9PWdg5JAZZKea6NxvzKxQaCM9tkNp8CH3D8wPosUlaYt4f_MGm-bE8uiA/exec")
     const resJson = await res.json()
-    bookings = resJson.data
+    bookings = resJson.data.sort((a,b) => {
+                    const aDate = new Date(a.eventDate).getTime()
+                    const bDate = new Date(b.eventDate).getTime()
+                    return bDate - aDate
+                  })
 } catch (error) {
     bookings = [{error: "Error Loading Bookings. Contact Board Member."}]
 }
@@ -29,7 +33,7 @@ try {
         </button>
       </h2>
       <div id="events" class="accordion-collapse collapse show" data-bs-parent="#event-space-accordian">
-            <div class="accordion-body text-start">
+            <div class="accordion-body text-start overflow-y-scroll" style="height: 250px">
             {
             bookings.map(b => {
                 if(b.error) {
