@@ -1,4 +1,6 @@
 ---
+export const prerender = false
+
 import Layout from '../layouts/Layout.astro';
 import PhotoGallery from '../components/PhotoGallery.astro';
 import Announcements from '../components/Announcements.astro';
@@ -17,7 +19,7 @@ import {frontmatter, Content} from '../content/index.md';
         <Content/>
       </div>
       
-      <Announcements client:load/>
+      <Announcements />
       
       <PhotoGallery/>
     </div>
