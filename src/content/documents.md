@@ -30,9 +30,9 @@ documents:
     - title: "2024"
       link: https://drive.google.com/drive/folders/1fP5HW04_52eUsfiXYyY7EJCFEt3eKtcD?usp=drive_link
       bracket: true
-    - title: "2025"
-      link: https://drive.google.com/drive/folders/1fP5HW04_52eUsfiXYyY7EJCFEt3eKtcD?usp=drive_link
-      bracket: true
+    # - title: "2025"
+    #   link: https://drive.google.com/drive/folders/1fP5HW04_52eUsfiXYyY7EJCFEt3eKtcD?usp=drive_link
+    #   bracket: true
 
 ---
 
