@@ -2,6 +2,11 @@
 
 This is a site for the Horixon HDFC Cooperative.
 
+# Tech
+
+- **Astro**: Content-Driven Javscript Web Framework 
+- **Bootstrap**: CSS Framework
+- **SCSS**: Additional Styling
 
 # Resources
 
