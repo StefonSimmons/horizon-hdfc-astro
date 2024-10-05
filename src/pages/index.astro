@@ -5,6 +5,7 @@ import {frontmatter, Content} from '../content/index.md';
 
 let announcements = []
 try {
+  // Fetch getAnnouncements data from Horizon CMS (google sheet)
   const res = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=MsQDgUhTsZX2uvb8B0Rr9up01SJwX-x3cA1VDAXzm-APsqdvEPHYHWt324CyXpZOziAmqSnnToycKBCyik5COTXGVQmISUN2m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnAYbvfmgpOXryj8iMJ7eB_rFEFMLQed1jAPLZ5sa8ravhu6hodRKad78WDE7vEZHDH7OeQ87cXTcdJyBpDeOyWYg1se9SVzKn9z9Jw9Md8uu&lib=MDMznub2mNM29rXfxSJcRzo0TOFMzREza")
   const resJson = await res.json()
   announcements = resJson.data.sort((a,b) => {
@@ -13,10 +14,14 @@ try {
     return bDate - aDate
   })
 } catch (error) {
-  console.log(error.message)
-  announcements = [{error: true}]
+  announcements = [{error: "Error Loading Announcements. Contact Board Member."}]
 }
 
+/**
+ * Returns the days between today's date and the given date
+ * @param {string} date - Date string to compare with today's date
+ * @return {string} 
+ */
 const daysElapsed = (date:string) => {
   const today = new Date()
   const announcementDate = new Date(date)
@@ -26,13 +31,13 @@ const daysElapsed = (date:string) => {
   return dateDiff ? `${dateDiff} days ago` : "Today"
 }
 
+/**
+ * Truncates string to a certain number of characters
+ * @param {number} cutOff - max character count to truncate string to 
+ * @return {string} Substring of parent string or the parent string untruncated
+ */
 String.prototype.truncate = function (cutOff) {
-
-  if(this.length > cutOff){
-    return `${this.substring(0,cutOff)}...`
-  }else{
-    return this
-  }
+  return this.length > cutOff ? `${this.substring(0,cutOff)}...` : this
 }
 ---
 
@@ -54,7 +59,7 @@ String.prototype.truncate = function (cutOff) {
             announcements.map((a, idx) => {
               if(a.error) {
                   return (
-                      <div class="text-danger">Error Loading Announcements. Contact Board Member.</div>
+                      <div class="text-danger">{a.error}</div>
                   )
               }
               return (
