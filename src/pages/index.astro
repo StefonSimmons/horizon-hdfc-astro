@@ -82,8 +82,7 @@ String.prototype.truncate = function (cutOff) {
                 <a 
                   href="#"
                   type="button" 
-                  class={`btn list-group-item list-group-item-action rounded text-start mb-4 p-3 ${!idx ? "bg-primary-subtle":""}`} 
-                  style="height: 150px" 
+                  class={`btn announcement list-group-item list-group-item-action rounded text-start mb-4 p-3 ${!idx ? "bg-primary-subtle":""}`} 
                   data-bs-toggle="modal" 
                   data-bs-target={`#announcement-${a.id}`}
                   >
@@ -91,7 +90,7 @@ String.prototype.truncate = function (cutOff) {
                     <h5 class="mb-1">{a.heading}</h5>
                     <small class="d-none d-md-block">{daysElapsed(a.date)}</small>
                   </div>
-                  <p class="mt-2">{a.detail.truncate(210)}</p>
+                  <p class="mt-2">{a.detail.truncate(150)}</p>
                 </a>
               )
             })

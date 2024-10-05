@@ -12040,4 +12040,13 @@ textarea.form-control-lg {
 
 .navbar {
   height: 90px;
+}
+
+.announcement {
+  min-height: 150px;
+}
+@media (max-width: 750px) {
+  .announcement {
+    min-height: 200px;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -21,3 +21,10 @@
 .navbar {
     height: 90px;
 }
+
+.announcement {
+    min-height: 150px;
+    @media (max-width: 750px) {
+        min-height: 200px
+    }
+}
