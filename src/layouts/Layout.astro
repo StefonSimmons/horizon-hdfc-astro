@@ -1,4 +1,7 @@
 ---
+import {frontmatter} from "../content/layout.md"
+import '../styles/_reset.scss';
+import '../styles/_bootstrap.scss';
 interface Props {
 	title: string;
 }
@@ -17,34 +20,57 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		 <!-- NAVIGATION -->
+		 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+			<div class="container">
+				<a class="navbar-brand" href="/">{frontmatter.title}</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						{
+							frontmatter.navItems.map((i: any) => {
+								const slug = i.name.toLowerCase().replaceAll(' ', '-')
+								return (
+									i.dropdown ?
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+											aria-expanded="false">
+											{i.name}
+										</a>
+										<ul class="dropdown-menu">
+											{
+												i.dropdown.map((d:string) => {
+													const slug = d.toLowerCase().replaceAll(' ', '-')
+													return (
+														<li><a class="dropdown-item" href={`/${slug}`}>{d}</a></li>
+													)
+												})
+											}
+										</ul>
+									</li>
+									:
+									<li>
+										<a class="nav-link" href={`/${slug}`}>{i.name}</a>
+									</li>
+								)
+							})
+						}
+					</div>
+				</div>
+			</div>
+		</nav>
 		<slot />
+		<footer class="bg-dark mt-4">
+			<div class="container text-center text-light p-3">
+				(c) Horizon HDFC
+			</div>
+		</footer>
+		<script>
+			// Import all Bootstrap js
+			import 'bootstrap/dist/js/bootstrap'
+		</script>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

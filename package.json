@@ -10,6 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.15.11"
+    "astro": "^4.15.11",
+    "bootstrap": "^5.3.3",
+    "sass": "^1.79.4"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10"
   }
 }
