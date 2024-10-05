@@ -6,16 +6,18 @@ import {frontmatter, Content} from '../content/index.md';
 let announcements = []
 try {
   // Fetch getAnnouncements data from Horizon CMS (google sheet)
-  const res = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=MsQDgUhTsZX2uvb8B0Rr9up01SJwX-x3cA1VDAXzm-APsqdvEPHYHWt324CyXpZOziAmqSnnToycKBCyik5COTXGVQmISUN2m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnAYbvfmgpOXryj8iMJ7eB_rFEFMLQed1jAPLZ5sa8ravhu6hodRKad78WDE7vEZHDH7OeQ87cXTcdJyBpDeOyWYg1se9SVzKn9z9Jw9Md8uu&lib=MDMznub2mNM29rXfxSJcRzo0TOFMzREza")
+  const res = await fetch("https://script.google.com/macros/s/AKfycbzcsiiUCsOqcc-RbNjY_kSLyHjYNORex_QLw-DEjoUWZaMvElyHm_AAh_QNLN5m9rdaRg/exec")
   const resJson = await res.json()
   announcements = resJson.data.sort((a,b) => {
-    const aDate = new Date(a.date).getTime()
-    const bDate = new Date(b.date).getTime()
-    return bDate - aDate
-  })
+                    const aDate = new Date(a.date).getTime()
+                    const bDate = new Date(b.date).getTime()
+                    return bDate - aDate
+                  })
 } catch (error) {
   announcements = [{error: "Error Loading Announcements. Contact Board Member."}]
 }
+
+const noAnnouncements = !announcements.length || announcements.every(a => !a.goLive)
 
 /**
  * Returns the days between today's date and the given date
@@ -28,7 +30,16 @@ const daysElapsed = (date:string) => {
   const timeDiff = today.getTime() - announcementDate.getTime()
   const msInDay = (1000 * 3600 * 24)
   const dateDiff = Math.floor(timeDiff / msInDay)
-  return dateDiff ? `${dateDiff} days ago` : "Today"
+  
+  return !dateDiff 
+    ? "Today" 
+    : dateDiff === 1
+    ? "Yesterday"
+    : dateDiff === -1
+    ? "Tomorrow"
+    : dateDiff < 1
+    ? `In ${Math.abs(dateDiff)} days`
+    : `${dateDiff} days ago`
 }
 
 /**
@@ -50,12 +61,16 @@ String.prototype.truncate = function (cutOff) {
         <Content/>
       </div>
       <!-- ANNOUNCEMENTS -->
-      <div class="col-lg-6 border rounded bg-slate ">
+      <div class="col-lg-6 border rounded bg-slate">
         <div class="container mt-1">   
           <h2 class="text-center">{frontmatter.listGroup.heading}</h1>
         </div>
-        <div class="container list-group p-0 overflow-scroll" style="max-height:500px">
+        <div class="container list-group p-0 overflow-y-scroll" style="max-height:280px">
           {
+            noAnnouncements ? 
+            // no announcements are set to go live
+            <div class="text-warning-emphasis">No Announcements</div>
+            :
             announcements.map((a, idx) => {
               if(a.error) {
                   return (
@@ -63,6 +78,7 @@ String.prototype.truncate = function (cutOff) {
                   )
               }
               return (
+                a.goLive &&
                 <a 
                   href="#"
                   type="button" 
@@ -88,6 +104,7 @@ String.prototype.truncate = function (cutOff) {
       <!-- MODAL -->
       {
         announcements.map((a) => {
+          const date = new Date(a.date).toDateString()
           return (
             <div class="modal fade" id={`announcement-${a.id}`} tabindex="-1" aria-labelledby={`announcement-label-${a.id}`} aria-hidden="true">
               <div class="modal-dialog">
@@ -97,6 +114,7 @@ String.prototype.truncate = function (cutOff) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-start">
+                    <h6 class="d-block mb-2 fw-semibold">{date}</h6>
                     {a.detail}
                   </div>
                 </div>
