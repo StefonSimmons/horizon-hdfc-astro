@@ -39,7 +39,8 @@ Any static assets, like images, can be placed in the public/ or assets/ director
 ## Resources
 
 ### Google API (Apps Script)
-> From Horizon CMS (google sheet)
+> From [Horizon CMS](https://docs.google.com/spreadsheets/d/1Yzgelw9d3JjGJzMrwV_xbOUDCCZ1XpACX4oXlvujTUw/edit?usp=sharing) (google sheet)
+
 
 `getEventSpaceResponses` (**API Sample**)
 
