@@ -38,12 +38,11 @@ Any static assets, like images, can be placed in the public/ or assets/ director
 
 ## Resources
 
-### Google API (Apps Script)
+### Google APIs (Apps Scripts)
 > From [Horizon CMS](https://docs.google.com/spreadsheets/d/1Yzgelw9d3JjGJzMrwV_xbOUDCCZ1XpACX4oXlvujTUw/edit?usp=sharing) (google sheet)
 
 
-`getEventSpaceResponses` (**API Sample**)
-
+`getEventSpaceBookings` (**API Sample**)
 
 ```json
 {
@@ -51,7 +50,7 @@ Any static assets, like images, can be placed in the public/ or assets/ director
     {
       "timestamp": "2024-10-05T01:46:24.000Z",
       "fullName": "Stefon Simmons",
-      "apartment": "7a",
+      "apartment": "9F",
       "email": "hdfc.president@googlegroups.com",
       "phone": 5404982323,
       "space": "Rooftop Terrace",
@@ -66,7 +65,7 @@ Any static assets, like images, can be placed in the public/ or assets/ director
     {
       "timestamp": "2024-10-05T01:46:24.000Z",
       "fullName": "Ashlea Morgan",
-      "apartment": "7a",
+      "apartment": "9F",
       "email": "hdfc.secretary@googlegroups.com",
       "phone": 646466232,
       "space": "Rooftop Terrace",

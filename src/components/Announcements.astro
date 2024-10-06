@@ -3,20 +3,21 @@ import {frontmatter} from '../content/index.md';
 
 
 let announcements = []
+let noAnnouncements = false
 try {
   // Fetch getAnnouncements data from Horizon CMS (google sheet)
-  const res = await fetch("https://script.google.com/macros/s/AKfycbzcsiiUCsOqcc-RbNjY_kSLyHjYNORex_QLw-DEjoUWZaMvElyHm_AAh_QNLN5m9rdaRg/exec")
+  const res = await fetch(`https://script.google.com/macros/s/${import.meta.env.ANNOUNCEMENTS_ID}/exec`)
   const resJson = await res.json()
   announcements = resJson.data.sort((a,b) => {
                     const aDate = new Date(a.date).getTime()
                     const bDate = new Date(b.date).getTime()
                     return bDate - aDate
                   })
+  noAnnouncements = !announcements.length || announcements.every(a => !a.goLive)
 } catch (error) {
   announcements = [{error: "Error Loading Announcements. Contact Board Member."}]
 }
 
-const noAnnouncements = !announcements.length || announcements.every(a => !a.goLive)
 
 /**
  * Returns the days between today's date and the given date

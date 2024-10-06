@@ -1,20 +1,21 @@
 ---
 let bookings = []
+let noBookings = false
 try {
      // Fetch getEventSpaceResponses data from Horizon CMS (google sheet)
-    const res = await fetch("https://script.google.com/macros/s/AKfycbwU0J3qfBEbK9PWdg5JAZZKea6NxvzKxQaCM9tkNp8CH3D8wPosUlaYt4f_MGm-bE8uiA/exec")
+    const res = await fetch(`https://script.google.com/macros/s/${import.meta.env.EVENT_SPACE_BOOKING_ID}/exec`)
     const resJson = await res.json()
     bookings = resJson.data.sort((a,b) => {
                     const aDate = new Date(a.eventDate).getTime()
                     const bDate = new Date(b.eventDate).getTime()
                     return bDate - aDate
                   })
+
+    // if no bookings or all bookings returned arent approved
+    noBookings = !bookings.length || bookings.every(b => !b.isApproved)
 } catch (error) {
     bookings = [{error: "Error Loading Bookings. Contact Board Member."}]
 }
-
-const noBookings = !bookings.length || bookings.every(b => !b.isApproved)
-
 
 /**
  * Format DateTime to a short time style
