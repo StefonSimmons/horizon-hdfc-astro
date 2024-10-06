@@ -7,6 +7,18 @@ This is a site for the Horizon HDFC Residential Cooperative.
 - **Bootstrap**: CSS Framework
 - **SCSS**: Additional Styling
 
+## Commands
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
 ## Deployment
 Vercel is used to deploy this site: https://vercel.com/stefonsimmons-projects/horizonhdfc600
 - deployment configuration [here](/astro.config.mjs)
@@ -16,12 +28,20 @@ Vercel is used to deploy this site: https://vercel.com/stefonsimmons-projects/ho
 This is a static-first generated (SSG) site. The **Home** and **Event Space Signup** pages are server-side rendered (SSR) due to interactivity needed to load Google CMS data.
 - Enabled SSR via [the Vercel Adapter](https://docs.astro.build/en/guides/deploy/vercel/#adapter-for-ssr)
 
+## Project Structure
+- `src/pages/`: Each page is exposed as a `route` based on its file name.
+- `src/components/`: has Astro components used within `pages`
+- `src/layouts`: rendered on every `page`
+- `src/content`: `markdown` content used within `.astro` files
+
+Any static assets, like images, can be placed in the public/ or assets/ directory.
+
 ## Resources
 
 ### Google API (Apps Script)
-From Horizon CMS (google sheet)
+> From Horizon CMS (google sheet)
 
-**getEventSpaceResponses API Sample**
+`getEventSpaceResponses` (**API Sample**)
 
 
 ```json
@@ -61,8 +81,7 @@ From Horizon CMS (google sheet)
 }
 ```
 
-**getAnnouncements API Sample**
-
+`getAnnouncements` (**API Sample**)
 
 ```json
 {
