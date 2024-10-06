@@ -13,6 +13,9 @@ try {
     bookings = [{error: "Error Loading Bookings. Contact Board Member."}]
 }
 
+const noBookings = !bookings.length || bookings.every(b => !b.isApproved)
+
+
 /**
  * Format DateTime to a short time style
  * @param {string} time - DateTime string to format
@@ -35,6 +38,10 @@ try {
       <div id="events" class="accordion-collapse collapse show" data-bs-parent="#event-space-accordian">
             <div class="accordion-body text-start overflow-y-scroll" style="height: 250px">
             {
+            noBookings ? 
+            // no bookings are set to go live
+            <div class="text-warning-emphasis">No Bookings</div>
+            :
             bookings.map(b => {
                 if(b.error) {
                     return (
