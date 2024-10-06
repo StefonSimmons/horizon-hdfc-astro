@@ -1,16 +1,24 @@
 # Horizon HDFC site
 
-This is a site for the Horixon HDFC Cooperative.
+This is a site for the Horizon HDFC Residential Cooperative.
 
-# Tech
-
+## Tech
 - **Astro**: Content-Driven Javscript Web Framework 
 - **Bootstrap**: CSS Framework
 - **SCSS**: Additional Styling
 
-# Resources
+## Deployment
+Vercel is used to deploy this site: https://vercel.com/stefonsimmons-projects/horizonhdfc600
+- deployment configuration [here](/astro.config.mjs)
+- output dir: `.vercel/output`
 
-## Google API (Apps Script)
+## Rendering
+This is a static-first generated (SSG) site. The **Home** and **Event Space Signup** pages are server-side rendered (SSR) due to interactivity needed to load Google CMS data.
+- Enabled SSR via [the Vercel Adapter](https://docs.astro.build/en/guides/deploy/vercel/#adapter-for-ssr)
+
+## Resources
+
+### Google API (Apps Script)
 From Horizon CMS (google sheet)
 
 **getEventSpaceResponses API Sample**
