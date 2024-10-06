@@ -79,7 +79,7 @@ String.prototype.truncate = function (cutOff) {
               data-bs-target={`#announcement-${a.id}`}
               >
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{a.heading}</h5>
+                <p class="fs-5 fw-medium mb-0">{a.heading}</p>
                 <small class="d-none d-md-block">{daysElapsed(a.date)}</small>
               </div>
               <p class="mt-2">{a.detail.truncate(150)}</p>
