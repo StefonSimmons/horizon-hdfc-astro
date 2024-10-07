@@ -12022,10 +12022,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.bg-blue-mountain {
-  background-color: #76c1d4;
-}
-
 .bg-soft-wheat {
   background-color: #f0ede5;
 }
@@ -12076,4 +12072,10 @@ a {
 
 .accordion-button:focus {
   box-shadow: 0 0 0 0.25rem #f7f7f7;
+}
+
+@media (max-width: 992px) {
+  .calendar-pg ul {
+    padding: 0;
+  }
 }/*# sourceMappingURL=main.css.map */
