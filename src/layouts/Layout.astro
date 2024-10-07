@@ -19,6 +19,22 @@ const { title, backgroundColor } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/horizon-logo-64.png" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Facebook Meta Tags -->
+		<meta property="og:url" content="https://horizonhdfc600.vercel.app/">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content="Horizon HDFC is a residential co-op within 3599 Condominum">
+		<meta property="og:image" content="/horizon-logo-64">
+
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="horizonhdfc600.vercel.app">
+		<meta property="twitter:url" content="https://horizonhdfc600.vercel.app/">
+		<meta name="twitter:title" content="Welcome to Horizon">
+		<meta name="twitter:description" content="Horizon HDFC is a residential co-op within 3599 Condominum">
+		<meta name="twitter:image" content="/horizon-logo-64">
+
 		<title>{title}</title>
 	</head>
 	<body class={`text-center ${backgroundColor} position-relative min-vh-100 pt-5 mt-5`}>
