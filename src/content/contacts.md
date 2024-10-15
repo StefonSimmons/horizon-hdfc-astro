@@ -35,11 +35,9 @@ These are key individuals responsible for the management and governance of the c
 <hr class="d-block d-lg-none"/>
 
 ### Residential Staff
-- **Clever Mendex (Superintendent)**
-    <!-- - 347-488-5561 -->
+- **Clever Mendez (Superintendent)**
     - Works Monday-Friday, 9am - 5pm
     - On-call 24/7
     
 - **Frankie (Porter)**
-    <!-- - 929-330-1521 -->
     - Works Sunday-Thursday, 3pm - 9pm
