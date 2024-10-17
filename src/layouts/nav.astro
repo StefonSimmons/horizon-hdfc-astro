@@ -21,6 +21,7 @@ import horizon from "../../public/horizon-logo.png"
                         const slug = i.name.toLowerCase().replaceAll(' ', '-')
                         return (
                             i.dropdown ?
+                            // Dropdown Nav Item
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle item-hover-out" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
@@ -39,7 +40,11 @@ import horizon from "../../public/horizon-logo.png"
                             </li>
                             :
                             <li>
+                                { i.external_link ? 
+                                <a class="nav-link item-hover-out" href={i.external_link} target="_blank">{i.name}</a>
+                                :
                                 <a class="nav-link item-hover-out" href={`/${slug}`}>{i.name}</a>
+                                }
                             </li>
                         )
                     })

@@ -7,5 +7,6 @@ navItems:
     - name: Forms
       dropdown:
         - Event Space Signup
-
+    - name: Resident Portal
+      external_link: https://residentportal.newgents.com/tenant
 ---
