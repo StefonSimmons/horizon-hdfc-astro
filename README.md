@@ -33,6 +33,7 @@ This is a static-first generated (SSG) site. The **Home** and **Event Space Sign
 - `src/components/`: has Astro components used within `pages`
 - `src/layouts`: rendered on every `page`
 - `src/content`: `markdown` content used within `.astro` files
+  - see more on how to Create and Update content [here](/CONTRIBUTE_CONTENT.md)
 
 Any static assets, like images, can be placed in the public/ or assets/ directory.
 
@@ -106,3 +107,12 @@ Any static assets, like images, can be placed in the public/ or assets/ director
 https://app.styledcalendar.com/calendars
 
 > need horizon hdfc google access
+
+## Next Steps
+- Email notification after filling the event signup form and after approval
+- use websocket for form results (live updates)
+- Write Contributing-to-Content Doc
+
+Other
+- Write how-to guide for horizon's systems
+  - file storage, google groups, permissions, 
