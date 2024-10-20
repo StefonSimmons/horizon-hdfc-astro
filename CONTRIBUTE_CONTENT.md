@@ -21,3 +21,4 @@ Currently, we have 2 methods for updating [content](/src/content) on the site
    - there is a **Board Approved** column. This is a `boolean` field that determines whether the booking is shown on the live site
 
 ## Google Form(s)
+Are located in our [Horizon Admin Google Drive](https://drive.google.com/drive/folders/1JiBXj2s781nopvWj2g0t1__Ii2juM3dT?usp=drive_link)
