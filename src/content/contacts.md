@@ -11,14 +11,15 @@ These are key individuals responsible for the management and governance of the c
 ### Horizon Board of Directors
 - Stefon Simmons - President
 - Cassandra Apollon - Vice President
-- Niambi Rollins - Treasurer
 - Ashlea Morgan - Secretary
 - Sharon Colburn - Representative of the Sponsor (Columbia University)
+- Lekha Sridhar
+- Daniel Dinero
 
 <hr class="d-block d-lg-none"/>
 
 ### Horizon Representatives
-- Leonardo Blair - Condominium Board President
+- Prashant Iyengar
 - Robin Sakr - Residential Board President
 
 <hr class="d-block d-lg-none"/>
