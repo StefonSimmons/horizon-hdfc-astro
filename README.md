@@ -32,6 +32,7 @@ This is a static-first generated (SSG) site. The **Home** and **Event Space Sign
 - `src/pages/`: Each page is exposed as a `route` based on its file name.
 - `src/components/`: has Astro components used within `pages`
 - `src/layouts`: rendered on every `page`
+  - includes the nav items and page title
 - `src/content`: `markdown` content used within `.astro` files
   - see more on how to Create and Update content [here](/CONTRIBUTE_CONTENT.md)
 
