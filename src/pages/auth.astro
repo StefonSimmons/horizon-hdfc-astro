@@ -35,7 +35,7 @@ import Layout from "../layouts/Layout.astro";
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const formData = new FormData(form);
-    const { error } = await actions.getUser(formData);
+    const {data, error} = await actions.getUser(formData);
 
     if (error?.code === "UNAUTHORIZED" ) {
       form.querySelector('input[name="passcode"]').classList.add('is-invalid');
@@ -43,7 +43,8 @@ import Layout from "../layouts/Layout.astro";
       return
     }
 
-    // if successful direct to homepage
+    // if successful, set cookie and direct to homepage
+    document.cookie = `horizonToken=${data.token}`;
     navigate('/');
   })
 </script>

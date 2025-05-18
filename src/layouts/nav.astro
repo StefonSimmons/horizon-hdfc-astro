@@ -15,7 +15,7 @@ import horizon from "../../public/horizon-logo.png"
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse bg-white" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="navbar-nav pb-3 pb-lg-0">
                 {
                     frontmatter.navItems.map((i: any) => {
                         const slug = i.name.toLowerCase().replaceAll(' ', '-')
@@ -49,7 +49,20 @@ import horizon from "../../public/horizon-logo.png"
                         )
                     })
                 }
+                <li class="d-flex align-items-center justify-content-center">
+                    <button id="logout" type="button" class="btn btn-outline-dark btn-sm mt-2 mt-md-0" >Logout</button>
+                </li>
             </div>
         </div>
     </div>
 </nav>
+<script>
+    import {addLogoutListener} from '../utils/logout.js';
+    import {navigate} from 'astro:transitions/client';
+    
+
+    // ADDS LOGOUT FUNCTIONALITY
+    addLogoutListener(navigate);
+
+
+</script>
