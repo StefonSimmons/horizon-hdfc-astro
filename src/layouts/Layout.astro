@@ -60,4 +60,12 @@ const { title, backgroundColor } = Astro.props;
 			// import 'bootstrap/js/dist/tooltip';
 		</script>
 	</body>
+	<script>
+		import {actions} from 'astro:actions';
+		import {navigate} from 'astro:transitions/client';
+		import {verifyUser} from '../utils/auth.js';
+
+		// Verify user on every page
+		verifyUser(actions,navigate)
+	</script>
 </html>

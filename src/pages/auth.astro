@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Horizon HDFC - Calendar" backgroundColor="bg-barely-grey">
+  <div
+    class="d-flex flex-column align-items-center justify-content-center vh-100"
+  >
+    <div>
+      <p class="m-0">Enter passcode</p>
+      <p class="m-0">to access this site</p>
+    </div>
+    <form class="needs-validation mt-3">
+      <div class="mb-3">
+        <input
+          required
+          title="passcode"
+          name="passcode"
+          type="password"
+          class="form-control"
+          placeholder="Passcode"
+        />
+        <div class="invalid-feedback">Invalid passcode</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Enter</button>
+    </form>
+  </div>
+</Layout>
+
+<script>
+  import { actions } from 'astro:actions';
+  import { navigate } from 'astro:transitions/client';
+  
+  const form = document.querySelector("form.needs-validation") as HTMLFormElement;
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const {data, error} = await actions.getUser(formData);
+
+    if (error?.code === "UNAUTHORIZED" ) {
+      form.querySelector('input[name="passcode"]').classList.add('is-invalid');
+      console.error(`${error.code}: ${error.message}`);
+      return
+    }
+
+    // if successful, set cookie and direct to homepage
+    document.cookie = `horizonToken=${data.token}`;
+    navigate('/');
+  })
+</script>
