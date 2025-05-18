@@ -15,6 +15,7 @@ try {
                   })
   noAnnouncements = !announcements.length || announcements.every(a => !a.goLive)
 } catch (error) {
+  console.log("Error fetching announcements: ", error.message)
   announcements = [{error: "Error Loading Announcements. Contact Board Member."}]
 }
 
