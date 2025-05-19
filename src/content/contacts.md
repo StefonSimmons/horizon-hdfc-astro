@@ -11,15 +11,15 @@ These are key individuals responsible for the management and governance of the c
 ### Horizon Board of Directors
 - Stefon Simmons - President
 - Cassandra Apollon - Vice President
+- Lekha Sridhar - Treasurer
 - Ashlea Morgan - Secretary
 - Sharon Colburn - Representative of the Sponsor (Columbia University)
-- Lekha Sridhar
 - Daniel Dinero
 
 <hr class="d-block d-lg-none"/>
 
 ### Horizon Representatives
-- Prashant Iyengar
+- Prashant Iyengar - Condominium Board President
 - Robin Sakr - Residential Board President
 
 <hr class="d-block d-lg-none"/>
@@ -31,14 +31,14 @@ These are key individuals responsible for the management and governance of the c
 - Office: (347) 707-1010
 - faiz@newgents.com
 - http://www.newgents.com/
-<!-- - Cell (917) 803-5336 -->
 
 <hr class="d-block d-lg-none"/>
 
 ### Residential Staff
-- **Clever Mendez (Superintendent)**
-    - Works Monday-Friday, 9am - 5pm
-    - On-call 24/7
+- **Johnny Guerrero**
+    - Superintendent 
+    - 5:30pm - 11pm
+    - (929)462-5115
     
-- **Frankie (Porter)**
-    - Works Sunday-Thursday, 3pm - 9pm
+- **John**
+    - Porter
