@@ -26,11 +26,11 @@ These are key individuals responsible for the management and governance of the c
 
 ### Property Manager
 - **Faiz Ahmed, CPO**
-- Newgent Management LLC
-- 20 S Broadway Mezzanine, Yonkers, NY 10701
-- Office: (347) 707-1010
-- faiz@newgents.com
-- http://www.newgents.com/
+    - Newgent Management LLC
+    - 20 S Broadway Mezzanine, Yonkers, NY 10701
+    - Office: (347) 707-1010
+    - faiz@newgents.com
+    - http://www.newgents.com/
 
 <hr class="d-block d-lg-none"/>
 
