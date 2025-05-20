@@ -1,6 +1,8 @@
 ---
 import {frontmatter} from "../content/layout.md"
 import horizon from "../../public/horizon-logo.png"
+
+const {isVerified} = Astro.props
 ---
 
 <!-- NAVIGATION -->
@@ -32,7 +34,7 @@ import horizon from "../../public/horizon-logo.png"
                                         i.dropdown.map((d:string) => {
                                             const slug = d.toLowerCase().replaceAll(' ', '-')
                                             return (
-                                                <li><a class="dropdown-item" href={`/${slug}`}>{d}</a></li>
+                                                <li><a class="dropdown-item d-flex justify-content-center" href={`/${slug}`}>{d}</a></li>
                                             )
                                         })
                                     }
@@ -50,15 +52,15 @@ import horizon from "../../public/horizon-logo.png"
                     })
                 }
                 <li class="d-flex align-items-center justify-content-center">
-                    <button id="logout" type="button" class="btn btn-outline-dark btn-sm mt-2 mt-md-0" >Logout</button>
+                    <button id="logout" type="button" class=`${!isVerified ? 'd-none': ''} btn btn-outline-dark btn-sm mt-2 ms-0 mt-md-0 ms-md-2` >Logout</button>
                 </li>
             </div>
         </div>
     </div>
 </nav>
 <script>
-    import {addLogoutListener} from '../utils/logout.js';
-    import {navigate} from 'astro:transitions/client';
+    import {addLogoutListener} from '../utils/auth.js';
+    import { navigate } from 'astro:transitions/client';
     
 
     // ADDS LOGOUT FUNCTIONALITY
