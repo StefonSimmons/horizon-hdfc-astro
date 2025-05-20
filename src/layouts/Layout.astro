@@ -1,6 +1,10 @@
 ---
 import Nav from '../layouts/nav.astro'
 import Footer from '../layouts/footer.astro'
+import Auth from '../pages/auth.astro'
+import { verifyUser } from '../utils/auth'
+import { actions } from 'astro:actions'
+
 import '../styles/main.css'
 interface Props {
 	title: string;
@@ -8,6 +12,9 @@ interface Props {
 }
 
 const { title, backgroundColor } = Astro.props;
+const cookie = Astro.cookies.get('horizonToken');
+
+const isVerifiedUser = await verifyUser(actions, Astro.callAction ,cookie?.value)
 ---
 
 <!doctype html>
@@ -38,8 +45,15 @@ const { title, backgroundColor } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class={`text-center ${backgroundColor} position-relative min-vh-100 pt-5 mt-5`}>
-		<Nav/>
-		<slot />
+		<Nav isVerified={isVerifiedUser}/>
+		{
+			isVerifiedUser ?
+			// User is logged in
+			<slot />
+			:
+			// User is not logged in
+			<Auth />
+		}
 		<Footer/>
 		<script>
 			// // Import all Bootstrap js
@@ -60,12 +74,4 @@ const { title, backgroundColor } = Astro.props;
 			// import 'bootstrap/js/dist/tooltip';
 		</script>
 	</body>
-	<script>
-		import {actions} from 'astro:actions';
-		import {navigate} from 'astro:transitions/client';
-		import {verifyUser} from '../utils/auth.js';
-
-		// Verify user on every page
-		verifyUser(actions,navigate)
-	</script>
 </html>
