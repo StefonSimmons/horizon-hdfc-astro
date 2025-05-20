@@ -9,7 +9,7 @@ export const verifyUser = (actions, navigate) => {
     const navItems = document.querySelectorAll('.navbar-nav .nav-link')
     const logoutBtn = document.querySelector('button#logout')
     if (!token) {
-        console.log("NO TOKEN")
+        // If no token, disable navigation items and redirect to auth page
         disableNav(navItems, logoutBtn)
 
         if(window.location.pathname !== '/auth'){
@@ -19,8 +19,8 @@ export const verifyUser = (actions, navigate) => {
         return
     }
     actions.verifyUser({token}).then(res => {
+        // Check if the user is logged in
         if(!res.data.user.user){
-            console.log("NO USER")
             disableNav(navItems, logoutBtn)
             navigate('/auth')
         }
@@ -40,7 +40,7 @@ function disableNav (navItems, logoutBtn) {
     navItems.forEach(item => {
         item.classList.add('disabled')
     })
-    logoutBtn.setAttribute('disabled', true)
+    logoutBtn.classList.add('d-none')
 }
 
 /**
