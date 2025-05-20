@@ -45,15 +45,17 @@ export const server = {
             // Verify the token
             try {
                 const decoded = jwt.verify(token, import.meta.env.JWT_SECRET);
+
                 return {
                     code: "Authorized",
                     message: "Token is valid.",
                     user: decoded,
                 }
             } catch (err) {
+                console.log(err)
                 throw new ActionError({
                     code: "UNAUTHORIZED",
-                    message: "Invalid token.",
+                    message: "Invalid token."
                 })
             }
         }

@@ -1,55 +1,41 @@
-
 /**
  * Verify if the user is logged in
- * @param {Object} actions 
- * @param {Function} navigate 
+ * @param {Object} actions used to call the action handlers from the client
+ * @param {Function} callAction used to call an Action handler directly from your Astro component
+ * @param {string} token jsonwebtoken stored in browser cookies
+ * @returns {boolean} true if the user is verified, false otherwise
  */
-export const verifyUser = (actions, navigate) => {
-    const token = getToken()
-    const navItems = document.querySelectorAll('.navbar-nav .nav-link')
-    const logoutBtn = document.querySelector('button#logout')
-    if (!token) {
-        // If no token, disable navigation items and redirect to auth page
-        disableNav(navItems, logoutBtn)
+export const verifyUser = async (actions, callAction, token) => {
+    if (!token) return false // no token found
 
-        if(window.location.pathname !== '/auth'){
-            navigate('/auth')
-        }
+    const {data, error} = await callAction(actions.verifyUser, {token})
 
-        return
+    // user is not verified
+    if(error){
+        console.log(error)
+        return false
     }
-    actions.verifyUser({token}).then(res => {
-        // Check if the user is logged in
-        if(!res.data.user.user){
-            disableNav(navItems, logoutBtn)
-            navigate('/auth')
+
+    // user is potentially verified. could be true or false
+    return !!data?.user.user
+}
+
+
+
+/**
+ * Logout function to remove the token from the cookie and redirect to the auth page.
+ * @param {Function} navigate - The navigate function to redirect the user.
+*/
+export const addLogoutListener = (navigate) => {
+    document.querySelector('button#logout').addEventListener('click', () => {
+        const cookieName = "horizonToken"
+        const cookie = document.cookie.split('; ')
+        const tokenIndex = cookie.findIndex(row => row.startsWith(`${cookieName}=`))
+
+        if (tokenIndex !== -1) {
+            // Token found in cookie. Remove the token from the cookie
+            document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+            navigate('/')
         }
-    }).catch(err => {
-        console.log(err)
-        disableNav(navItems, logoutBtn)
-        navigate('/auth')
     })
-}
-
-/**
- * Disable navigation items
- * @param {Object} navItems: list of navigation items
- * @param {Object} logoutBtn: logout button
- */
-function disableNav (navItems, logoutBtn) {
-    navItems.forEach(item => {
-        item.classList.add('disabled')
-    })
-    logoutBtn.classList.add('d-none')
-}
-
-/**
- * Get token from cookies
- * @param {string} tokenName: name of the token to get
- * @returns token
- */
-function getToken (tokenName="horizonToken") {
-    const cookie = document.cookie
-    const token = cookie.split('; ').find(row => row.startsWith(`${tokenName}=`))?.split('=')[1]
-    return token
 }
