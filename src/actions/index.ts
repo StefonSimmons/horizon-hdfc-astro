@@ -11,7 +11,7 @@ export const server = {
             passcode: z.string(),
         }),
         handler: async ({passcode}) => {
-            // bcrypt.hash(passcode, saltRounds=10, function(err, hash) {
+            // bcrypt.hash(passcode, 10, function(err, hash) {
             //     console.log("DIGEST::",passcode,"--",hash)
             // });
             const hash = import.meta.env.SECRET_PROD_DIGEST || import.meta.env.SECRET_DEV_DIGEST || ""
