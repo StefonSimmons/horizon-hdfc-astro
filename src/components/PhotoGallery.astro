@@ -1,16 +1,16 @@
 ---
-const images = import.meta.glob('/src/assets/*')
+const images = import.meta.glob('/src/assets/*', {eager: true})
 ---
 
 <!-- PHOTO GALLERY -->
 <div id="carouselExample" class="col-12 px-4 carousel slide h-50" style="margin-bottom: 100px">
     <div class="carousel-inner">
       {
-        Object.keys(images).map((e, key) => {
-          const altName = e.split('/').pop().replace(/\..*/g,"")
+        Object.entries(images).map(([k,v], idx) => {
+          const altName = k.split('/').pop().replace(/\..*/g,"")
           return (
-          <div class={`carousel-item ${!key && 'active'}`}>
-            <img src={e} alt={altName} class="d-block w-100" style="height: 600px; object-fit: contain; object-position: center;" />
+          <div class={`carousel-item ${!idx && 'active'}`}>
+            <img src={v.default.src} alt={altName} class="d-block w-100" style="height: 600px; object-fit: contain; object-position: center;" />
           </div>
           );
         })
