@@ -11,10 +11,10 @@ These are key individuals responsible for the management and governance of the c
 ### Horizon Board of Directors
 - Stefon Simmons - President
 - Cassandra Apollon - Vice President
-- Lekha Sridhar - Treasurer
 - Ashlea Morgan - Secretary
-- Sharon Colburn - Representative of the Sponsor (Columbia University)
+- Lekha Sridhar - Treasurer
 - Daniel Dinero
+- Sharon Colburn - Representative of the Sponsor (Columbia University)
 
 <hr class="d-block d-lg-none"/>
 
@@ -25,7 +25,7 @@ These are key individuals responsible for the management and governance of the c
 <hr class="d-block d-lg-none"/>
 
 ### Property Manager
-- **Faiz Ahmed, CPO**
+- Faiz Ahmed, CPO
     - Newgent Management LLC
     - 20 S Broadway Mezzanine, Yonkers, NY 10701
     - Office: (347) 707-1010
@@ -35,10 +35,14 @@ These are key individuals responsible for the management and governance of the c
 <hr class="d-block d-lg-none"/>
 
 ### Residential Staff
-- **Johnny Guerrero**
-    - Superintendent 
+- Johnny Guerrero - Superintendent
     - 5:30pm - 11pm
     - (929)462-5115
-    
-- **John**
-    - Porter
+- John - Porter
+
+### Monitoring Agent
+- Jay Crespo (UHAB)
+
+<br>
+
+# Organization Chart

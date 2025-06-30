@@ -5,7 +5,7 @@ documents:
    description: Outlines the initial terms, conditions, and financial structure of the co-op when it was first formed, detailing the rights and responsibilities of shareholders and the board. It includes information on unit prices, building expenses, and how shares are allocated. This document serves as the foundation for the co-op’s governance and financial operation. 
    cta: 
     - title: Go To Doc
-      link: https://drive.google.com/file/d/1pooBwtUO4Okq8BhQ5-mIdG1cVTDm8p6Z/view?usp=drive_link
+      link: https://drive.google.com/file/d/166Y_PKFP9P9YTDhbH8VfSq6LN5Cyz-kI/view?usp=drive_link
     - title: Table Of Contents
       link: https://docs.google.com/document/d/1ze3zNVL--zJPYJO1c7kBJbkjdod7C_WlZ_EG_k5M5jc/edit?usp=drive_link
       bracket: true
@@ -30,10 +30,17 @@ documents:
     - title: "2024"
       link: https://drive.google.com/drive/folders/1fP5HW04_52eUsfiXYyY7EJCFEt3eKtcD?usp=drive_link
       bracket: true
-    # - title: "2025"
-    #   link: https://drive.google.com/drive/folders/1fP5HW04_52eUsfiXYyY7EJCFEt3eKtcD?usp=drive_link
-    #   bracket: true
+    - title: "2025"
+      link: https://drive.google.com/drive/folders/1LWTuZc920nnFxpXypdacRd2yHGhFi6YR?usp=drive_link
+      bracket: true
+ - name: Budgets
+   description: Outlines the annual financial plan for Horizon HDFC, including projected income, anticipated expenses, and planned reserves. These documents help guide financial decision-making, ensuring the co-op can responsibly manage building operations, maintenance, and improvements. Budgets are prepared with input from the Board, Monitor and Management to reflect the co-op’s priorities and obligations for the fiscal year.
+   cta: 
+    - title: "2025"
+      link: https://drive.google.com/file/d/1j4Psu3KFZbYQmliK0hCHGZZlyNjlPyLc/view?usp=drive_link
+      bracket: true
+  
 
 ---
 
-Here are the Governing Documents for our **Cooperative (Horizon)** and the greater **Residential** section and **Condominium**. See full Drive <a href="https://drive.google.com/drive/folders/1JiBXj2s781nopvWj2g0t1__Ii2juM3dT?usp=drive_link" target="_blank">here</a>
+Here are some important Governing Documents and Statements for our **Cooperative (Horizon)** and the greater **Residential** section and **Condominium**.

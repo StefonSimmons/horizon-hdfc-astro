@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import {Content} from "../content/markdown/contacts.md"
+import OrganizationChart from "../assets/contact/OrganizationalChart.png"
 
 ---
 <Layout title="Horizon HDFC - Contacts" backgroundColor='bg-barely-grey'>
       <div class="mt-4 pb-5 h-100 min-vh-100">
         <div class="calendar-pg container text-lg-start">
           <Content/>
+          <img src={OrganizationChart.src} alt="org chart" width="500px">
         </div>
       </div>
 </Layout>

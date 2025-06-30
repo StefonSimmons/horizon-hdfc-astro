@@ -13,7 +13,7 @@ import {frontmatter, Content} from "../content/markdown/documents.md"
             frontmatter.documents.map((d, idx) => {
               const slug = d.name.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '').replaceAll(' ','-')
               return (
-                <div class="accordion-item">
+                <div class={`accordion-item ${!idx ? "active": ""}`}>
                   <h2 class="accordion-header">
                     <button class={`accordion-button bg-soft-wheat ${idx ? "collapsed" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target={`#${slug}`} aria-expanded={`${!idx ? "true": "false"}`} aria-controls={`${slug}`}>
                       <strong>{d.name}</strong>
