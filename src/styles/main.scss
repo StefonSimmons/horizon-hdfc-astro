@@ -1,8 +1,14 @@
 @import './reset';
 @import './bootstrap';
 
+$horizon-gold: #7f6d4e;
+
 .bg-soft-wheat {
     background-color: #f0ede5;
+}
+
+.bg-horizon-gold {
+    background-color: $horizon-gold;
 }
 
 .bg-barely-grey {
@@ -43,7 +49,7 @@
 }
 
 a {
-    color: #7f6d4e;
+    color: $horizon-gold;
     font-weight: 600;
 }
 
