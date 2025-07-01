@@ -45,4 +45,4 @@ These are key individuals responsible for the management and governance of the c
 
 <br>
 
-# Organization Chart
+# Organizational Chart
