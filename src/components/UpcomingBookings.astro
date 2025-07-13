@@ -10,7 +10,7 @@ try {
                     const bDate = new Date(b.eventDate).getTime()
                     return bDate - aDate
                   })
-
+                  
     // if no bookings or all bookings returned arent approved
     noBookings = !bookings.length || bookings.every(b => !b.isApproved)
 } catch (error) {
@@ -24,7 +24,9 @@ try {
  */
  const eventDateTime = (time: string) => {
     const datetime = new Date(time)
-    const formatter = new Intl.DateTimeFormat('en-US', { timeStyle: "short" })
+    datetime.setMinutes(datetime.getMinutes() - 2) // adjust by 2 minutes
+    console.log("Local:", datetime.toLocaleTimeString())
+    const formatter = new Intl.DateTimeFormat('en-US', { timeStyle: "short", timeZone: "America/New_York" })
     return formatter.format(datetime)
 }
 ---
