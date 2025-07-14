@@ -52,6 +52,7 @@ try {
                 }
                 const isRoofTop = b.space === "Rooftop Terrace"
                 const eventDate = new Date(b.eventDate).toDateString()
+                const submittedDate = new Date(b.timestamp).toLocaleString("en-US",{timeZone: "America/New_York", month: "numeric", day:"numeric", year: "numeric"})
                 return(
                 b.isApproved &&
                 <div class="media text-muted pt-3">
@@ -60,10 +61,15 @@ try {
                             {isRoofTop ? "R" : "C"}
                         </span>
                     </div>
-                    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                        <strong class="d-block text-gray-dark">{eventDate}</strong>
-                        {`${b.space} is booked from ${eventDateTime(b.startTime)} - ${eventDateTime(b.endTime)}. ${b.numOfAttendees} attendees.`} 
-                    </p>
+                    <div class="border-bottom border-gray pb-3">
+                        <p class="media-body mb-0 small lh-125 pb-0">
+                            <strong class="d-block text-gray-dark">{eventDate}</strong>
+                            {`${b.space} is booked from ${eventDateTime(b.startTime)} - ${eventDateTime(b.endTime)}. ${b.numOfAttendees} attendees.`} 
+                        </p>
+                        <sub class="sub text-secondary fw-semibold">
+                            Submitted: {submittedDate} {eventDateTime(b.timestamp)}
+                        </sub>
+                    </div>
                 </div>
                 )
             })      
