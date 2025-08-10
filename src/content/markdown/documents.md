@@ -24,6 +24,11 @@ documents:
    cta: 
     - title: Go To Doc
       link: https://drive.google.com/file/d/1iF9662t_ArAjb-lkPXKdovsyekkI9ZQ5/view?usp=sharing
+ - name: House Rules
+   description: These House Rules apply to all shareholders, residents, and guests of Horizon HDFC.
+   cta: 
+    - title: Go To Doc
+      link: https://drive.google.com/file/d/1EcVHmae6PnkT__AfhVg5UCbKLwnojK-S/view?usp=sharing
  - name: Operating Statements
    description: Provides a detailed financial overview of the co-op, including income, expenses, and reserve funds. They track the co-op's financial health and help in planning future budgets. These documents are crucial for making informed decisions about maintenance, improvements, and the financial stability of the co-op.
    cta: 
