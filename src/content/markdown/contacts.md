@@ -5,8 +5,13 @@ title: Contacts
 
 # Contacts
 These are key individuals responsible for the management and governance of the co-op and greater Residential and Condominium sections.
-
 <br>
+
+### Listservs
+Please see **Communicaton Guidelines** in our [House Rules](https://drive.google.com/file/d/1EcVHmae6PnkT__AfhVg5UCbKLwnojK-S/view) before use.
+- All Shareholders - [horizon-hdfc-shareholders@googlegroups.com](mailto:horizon-hdfc-shareholders@googlegroups.com)
+- Board Listserv - [horizon-hdfc-board@googlegroups.com](mailto:horizon-hdfc-board@googlegroups.com)
+<hr class="d-block d-lg-none"/>
 
 ### Horizon Board of Directors
 - Stefon Simmons - President
@@ -15,6 +20,8 @@ These are key individuals responsible for the management and governance of the c
 - Lekha Sridhar - Treasurer
 - Daniel Dinero
 - Sharon Colburn - Representative of the Sponsor (Columbia University)
+
+
 
 <hr class="d-block d-lg-none"/>
 
@@ -44,5 +51,6 @@ These are key individuals responsible for the management and governance of the c
 - Jay Crespo (UHAB)
 
 <br>
+
 
 # Organizational Chart
