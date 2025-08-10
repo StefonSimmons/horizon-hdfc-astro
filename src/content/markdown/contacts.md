@@ -4,7 +4,7 @@ title: Contacts
 ---
 
 # Contacts
-These are key individuals responsible for the management and governance of the co-op and greater Residential and Condominium sections.
+Listservs, building entities, and key individuals responsible for the management and governance of the co-op and greater Residential and Condominium sections.
 <br>
 
 ### Listservs
