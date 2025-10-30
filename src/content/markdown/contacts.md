@@ -26,7 +26,7 @@ Please see **Communicaton Guidelines** in our [House Rules](https://drive.google
 
 ### Horizon Representatives
 - Prashant Iyengar - Condominium Board President
-- Robin Sakr - Residential Board President
+- Gabriel Caceras - Residential Board
 
 <hr class="d-block d-lg-none"/>
 
