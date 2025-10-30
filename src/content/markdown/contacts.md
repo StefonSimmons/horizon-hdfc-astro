@@ -14,11 +14,10 @@ Please see **Communicaton Guidelines** in our [House Rules](https://drive.google
 <hr class="d-block d-lg-none"/>
 
 ### Horizon Board of Directors
-- Stefon Simmons - President
-- Cassandra Apollon - Vice President
-- Ashlea Morgan - Secretary
-- Lekha Sridhar - Treasurer
+- Lekha Sridhar
 - Daniel Dinero
+- Amanda Lehman
+- Edison Lorenzo
 - Sharon Colburn - Representative of the Sponsor (Columbia University)
 
 
