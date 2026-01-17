@@ -41,10 +41,11 @@ Please see **Communicaton Guidelines** in our [House Rules](https://drive.google
 <hr class="d-block d-lg-none"/>
 
 ### Residential Staff
-- Johnny Guerrero - Superintendent
+- Jhon Blanco - Residential Section Super
     - 5:30pm - 11pm
-    - (929)462-5115
-- John - Porter
+    - (646)207-1577
+- Johnny Guerrero - Residential Section Porter
+    - (929)462-5115 
 
 ### Monitoring Agent
 - Jay Crespo (UHAB)
