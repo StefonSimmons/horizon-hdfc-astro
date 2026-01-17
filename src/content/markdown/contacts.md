@@ -18,8 +18,6 @@ Please see **Communicaton Guidelines** in our [House Rules](https://drive.google
 - Daniel Dinero
 - Amanda Lehman
 - Edison Lorenzo
-- Sharon Colburn - Representative of the Sponsor (Columbia University)
-
 
 
 <hr class="d-block d-lg-none"/>
