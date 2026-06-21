@@ -14,16 +14,16 @@ Please see **Communicaton Guidelines** in our [House Rules](https://drive.google
 <hr class="d-block d-lg-none"/>
 
 ### Horizon Board of Directors
-- Lekha Sridhar
-- Daniel Dinero
 - Amanda Lehman
 - Edison Lorenzo
+- Cassandra Apollon
+- Milton Fernandez
 
 
 <hr class="d-block d-lg-none"/>
 
 ### Horizon Representatives
-- Prashant Iyengar - Condominium Board President
+- Daniel Dinero - Horizon Condominium Representative
 - Gabriel Caceras - Residential Board
 
 <hr class="d-block d-lg-none"/>
