@@ -1,5 +1,5 @@
 ---
 forms: 
     eventSpaceSignup:
-      description: Please check that there are no conflicting events for your space on the
+      description: Please check that there are no conflicting events here.
 ---
